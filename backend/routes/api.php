@@ -7,8 +7,9 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/posts',[PostController::class,'index'])->name('index');
+Route::get('/post',[PostController::class,'index'])->name('index');
+Route::post('/post',[PostController::class, 'store'])->name('store');
+
 Route::get('/post/{id}',[PostController::class,'show'])->name('show');
+Route::get('user/{id}/post',[UserPostController::class,'index'])->name('user.post');
 
-
-Route::get('user/{id}/posts',[UserPostController::class,'index'])->name('user.post');
