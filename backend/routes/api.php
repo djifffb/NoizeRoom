@@ -1,15 +1,31 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserCommentController;
 use App\Http\Controllers\UserPostController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/post',[PostController::class,'index'])->name('index');
-Route::post('/post',[PostController::class, 'store'])->name('store');
 
-Route::get('/post/{id}',[PostController::class,'show'])->name('show');
+Route::get('/post',[PostController::class,'index'])->name('post.index');
+Route::post('/post',[PostController::class, 'store'])->name('post.store');
+
+
+
+Route::post('user/register',[AuthController::class,'register'])->name('user.register');
+Route::post('user/login',[AuthController::class,'login'])->name('user.login');
+Route::post('user/logout',[AuthController::class,'logout'])->name('user.logout');
+
+
+
+Route::get('/post/{id}',[PostController::class,'show'])->name('post.show');
+
+Route::put('/post/{id}',[PostController::class,'update'])->name('post.update');
+Route::delete('/post/{id}',[PostController::class,'destroy'])->name('post.destroy');
+
+
+
 Route::get('user/{id}/post',[UserPostController::class,'index'])->name('user.post');
-
+Route::get('user/{id}/comment', [UserCommentController::class, 'index'])->name('user.comment');

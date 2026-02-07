@@ -41,8 +41,7 @@ yarn-error.log*
 /backend/storage/logs/
 /backend/storage/framework/
 
-/backend/storage/app/public/tracks
-/backend/storage/app/public/user
+/backend/storage/app/public/tracks/
 
 /backend/Homestead.json
 /backend/Homestead.yaml
