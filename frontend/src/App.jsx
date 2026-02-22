@@ -1,9 +1,15 @@
 import React, { useRef } from 'react';
 import axios from 'axios'
+// import axiosClient from './api';
 
 
 const App = () => {
-    const nameRef = useRef();
+    axios.defaults.baseURL = 'http://localhost:8000'; 
+    axios.defaults.withCredentials = true;     
+    axios.defaults.xsrfCookieName = 'XSRF-TOKEN';      
+    axios.defaults.xsrfHeaderName = 'X-XSRF-TOKEN';    
+
+    // const nameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
 
@@ -12,24 +18,34 @@ const App = () => {
         e.preventDefault();
 
         const data = {
-            name: nameRef.current.value,
+            // name: nameRef.current.value,
             email: emailRef.current.value,
             password: passwordRef.current.value,
         }
         console.log(data);
 
-        // await axios.get('http://127.0.0.1:8000/api/sanctum/csrf-cookie')
-        // await axios.post('http://127.0.0.1:8000/user/register', data);
+        try {
+            await axios.get('/sanctum/csrf-cookie')
+
+            await axios.post('/api/user/login', data)
+
+            await axios.get('/api/user/me')
+            .then(response => console.log(response))
+        } catch (error) {
+            
+        }
     }
-
-
-
-
 
     return (
         <div>
-            <form onSubmit={handleChange}>
+            {/* <form onSubmit={handleChange}>
                 <input type="text" placeholder="name" ref={nameRef} />
+                <input type="email" placeholder="email" ref={emailRef} />
+                <input type="password" placeholder="password" ref={passwordRef} />
+                <button type="submit">register</button>
+            </form> */}
+
+            <form onSubmit={handleChange}>
                 <input type="email" placeholder="email" ref={emailRef} />
                 <input type="password" placeholder="password" ref={passwordRef} />
                 <button type="submit">register</button>
