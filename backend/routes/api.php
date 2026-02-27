@@ -9,16 +9,25 @@ use Illuminate\Support\Facades\Route;
 
 
 
+Route::get('/', function() {
+    return response()->json([
+        'message' => 'this api is dedicated to my thesis: NoizeRoom. NoizeRoom is a website dedicated to music',
+        'my account address' => 'https://github.com/djifffb',
+        ]);
+});
+
+
+
 Route::get('/post',[PostController::class,'index'])->name('post.index');
 Route::post('/post',[PostController::class, 'store'])->name('post.store');
 
-
-
 Route::post('user/register',[AuthController::class,'register'])->name('user.register');
 Route::post('user/login',[AuthController::class,'login'])->name('user.login');
-Route::post('user/logout',[AuthController::class,'logout'])->name('user.logout');
 
-
+Route::middleware('auth:api')->group(function(){
+    Route::get('user/me', [AuthController::class,'user']);
+    Route::post('user/logout',[AuthController::class,'logout'])->name('user.logout');
+});
 
 Route::get('/post/{id}',[PostController::class,'show'])->name('post.show');
 

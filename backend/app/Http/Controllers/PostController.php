@@ -48,7 +48,7 @@ class PostController extends Controller
         $track_path = $track->storeAs('tracks',$track_name,'public');
 
         Post::create([
-            'user_id' => $request->user_id,
+            'user_id' => $request->user_id, // Auth::id()
             'title' => $request->title,
             'description' => $request->description,
             'file_path' => $track_path,      

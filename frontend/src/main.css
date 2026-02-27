@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+}
+
+
+
+:root {
+
+    /* base */
+    --base-white: #fffefb;
+    --base-black: #121212;
+    --base-green: #1ed760;
+    --base-error-color: #d67974;
+
+
+    /* border */
+    --border-base-color: #525252;
+
+
+    /* input */
+    --input-text-size: 1.5rem;
+    --input-text-color: #a2b3b1;
+}
+
+
+
+
+
+
+
+
+/* ------------- input ------------- */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px var(--base-black) inset;
+    -webkit-text-fill-color: var(--input-text-color);
+    caret-color: var(--input-text-color);
+    font-size: var(--input-text-size) !important;
+}
+
+input {
+    font-size: var(--input-text-size);
+    color: var(--input-text-color);
+    outline: none;
+    width: 100%;
+}
+
+input::placeholder {
+    /* font-size: var(--input-text-size); */
+    color: var(--input-text-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* auth-page */
+
+
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: var(--base-black);
+}
+
+.auth-page__form {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    justify-content: center;
+    align-items: center;
+    padding-block: 2rem;
+}
+
+
+.auth-page__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 6rem;
+}
+
+.auth-page__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--base-white);
+}
+
+
+.auth-page__field {
+    width: 18rem;
+}   
+
+.auth-page__input {
+    width: 100%;
+    border: 2px solid var(--border-base-color);
+    border-radius: 6px;
+    padding-left: 8px;
+}
+
+
+.auth-page__error {
+    width: 100%;                     
+    max-width: 100%;                 
+    color: var(--base-error-color);
+    font-size: 0.875rem;
+    white-space: nowrap;             
+    overflow: hidden;                
+    text-overflow: ellipsis;         
+}
+
+
+.auth-page__submit {
+    width: 100%;
+    height: 3rem;
+}
+
+.auth-page__button {
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    background: var(--base-green);
+}
