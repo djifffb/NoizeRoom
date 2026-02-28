@@ -12,7 +12,7 @@ const Profile = () => {
   return (
     <div>
       <h2>Profile</h2>
-      <button onClick={logout}>logout</button>
+      <button className="text-white" onClick={logout}>logout</button>
     </div>
 
   )

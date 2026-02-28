@@ -1,6 +1,11 @@
 import React from 'react'
 import { Outlet, Navigate} from 'react-router-dom'
+
+// context
 import { useAuthContext } from '../context/AuthProvider'
+
+// component
+import Nav from '../components/Nav'
 
 
 
@@ -14,8 +19,9 @@ const GuestLayout = () => {
 
 
   return (
-    <div className='flex flex-col min-h-screen h-full w-full py-2.5 px-2.5'>
-      <div className='h-full w-full '>
+    <div className='layout'>
+      <Nav/>
+      <div className='layout__data'> 
         <Outlet/>
       </div>
     </div>

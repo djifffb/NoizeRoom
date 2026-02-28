@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 
 // context
@@ -27,7 +27,7 @@ import Profile from "./view/Profile";
 
 const MainPage = () => { 
     const { isAuth } = useAuthContext(); 
-    return isAuth() ? <Dashboard/> : <Welcome/>; 
+    return isAuth() ? <Navigate to="/dashboard" /> : <Navigate to="/welcome"/>;
 } 
 
 
@@ -45,6 +45,10 @@ const router = createBrowserRouter([
         element: <UserLayout />,
         children: [
             {
+                path: '/dashboard',
+                element: <Dashboard/>
+            },
+            {
                 path: '/user',
                 element: <Profile/>
             }
@@ -56,6 +60,10 @@ const router = createBrowserRouter([
         path: '/',
         element: <GuestLayout />,
         children: [
+            {
+                path: '/welcome',
+                element: <Welcome/>
+            },
             {
                 path: '/login',
                 element: <Login />,

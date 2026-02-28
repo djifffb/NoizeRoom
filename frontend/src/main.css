@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
-html,
-body,
-#root {
+html,body,#root {
     height: 100%;
     margin: 0;
 }
@@ -22,9 +20,14 @@ body,
     --border-base-color: #525252;
 
 
+    /* button */
+    --button-border-radius: 2rem;
+
+
     /* input */
     --input-text-size: 1.5rem;
     --input-text-color: #a2b3b1;
+    --input-border-radius: 6px;
 }
 
 
@@ -64,6 +67,62 @@ input::placeholder {
 
 
 
+/* layout */
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* m-h-scree */
+    height: 100%;
+    width: 100%;
+    padding-block: 10px; /* py */
+    padding-inline: 10px; /* px */
+    background: BLACK;
+}
+
+.layout__data {
+    flex: 1;
+    width: 100%;
+}
+
+
+
+
+
+/* nav */
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+    color: var(--base-white);
+    padding-inline: 3rem;
+}
+
+
+.nav__title {
+    font-size: 18px;
+}
+
+.nav__auth {
+    display: flex;
+    flex-direction: row;
+    gap: 17px;
+}
+
+.nav__button {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    height: 27px;
+    border-radius: var(--button-border-radius);
+    background: var(--base-green);
+    color: var(--base-black);
+}
+
+
+
 
 
 
@@ -78,6 +137,7 @@ input::placeholder {
     height: 100%;
     width: 100%;
     background: var(--base-black);
+    border-radius: 15px;
 }
 
 .auth-page__form {
@@ -112,7 +172,7 @@ input::placeholder {
 .auth-page__input {
     width: 100%;
     border: 2px solid var(--border-base-color);
-    border-radius: 6px;
+    border-radius: var(--input-border-radius);
     padding-left: 8px;
 }
 
@@ -136,6 +196,6 @@ input::placeholder {
 .auth-page__button {
     width: 100%;
     height: 100%;
-    border-radius: 2rem;
+    border-radius: var(--button-border-radius);
     background: var(--base-green);
 }
