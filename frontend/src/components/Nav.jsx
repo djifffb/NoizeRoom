@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
     const { isAuth, logout } = useAuthContext();
     return (
-
+        
         <nav className='nav '>
             <div>
                 <h1 className='nav__title'><Link to="/">NoizeRoom</Link></h1>
