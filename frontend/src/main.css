@@ -86,6 +86,17 @@ input::placeholder {
 }
 
 
+.link-back {
+    font-size: 3rem;
+    color: var(--base-white);
+    transform: color 0.10s ease;
+}
+
+.link-back:hover {
+    color: var(--base-green);
+}
+
+
 
 
 
@@ -173,17 +184,19 @@ input::placeholder {
 }
 
 
-
-
-
-
-
-
-
 /* auth-page */
 
-
 .auth-page {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background: var(--base-black);
+    border-radius: var(--border-base-radius);
+    padding-block: 1rem;
+    padding-inline: 1rem;
+}
+
+.auth-page__main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -254,6 +267,12 @@ input::placeholder {
 }
 
 
+
+/* dashboard-page */
+
+.dashboard-page {}
+.dashboard-page__main {}
+.dashboard-page__aside {}
 
 
 
