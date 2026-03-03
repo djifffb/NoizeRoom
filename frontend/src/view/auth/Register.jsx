@@ -41,7 +41,7 @@ const Register = () => {
     <div className='auth-page'>
       <Link to={from} className='link-back'><IoArrowBack /></Link>
 
-      <div className='auth-page__main'>
+      <main className='auth-page__main'>
         <form onSubmit={onSubmit} className='auth-page__form'>
           <div className='auth-page__header'>
             <h2 className='auth-page__title'>Sign up for NoizeRoom</h2>
@@ -84,7 +84,7 @@ const Register = () => {
             <Link to="/login" className='text-[#fffefb] hover:underline'> Sign in now</Link>
           </p>
         </form>
-      </div>
+      </main>
     </div>
   )
 }
