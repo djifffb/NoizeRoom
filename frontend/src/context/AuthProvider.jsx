@@ -63,7 +63,7 @@ export const AuthProvider = ({children}) => {
             setUser(userResponse.data);
             return true;
 
-        } catch (erro) {
+        } catch (error) {
             if(error.response.status === 422) {
                 setError({});
                 setError(error.response.data.errors);
